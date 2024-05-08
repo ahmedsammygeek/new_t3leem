@@ -18,6 +18,11 @@ Route::group(['prefix' => 'Board' , 'as' => 'board.'  , 'middleware' => 'auth' ]
     Route::resource('faculties', FacultyController::class);
     Route::resource('departments', DepartmentController::class);
 
+    Route::resource('teachers', AdminController::class);
+    Route::resource('assistants', AdminController::class);
+    Route::resource('students', AdminController::class);
+
+
 
 
     // Route::get('/login', function(){

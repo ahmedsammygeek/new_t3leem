@@ -60,10 +60,6 @@
 									<th> الكليه التابع لها </th>
 									<td> {{ $department->faculty?->name }}  </td>
 								</tr>
-								
-
-
-
 								<tr>
 									<th> فعال ؟ </th>
 									<td> 
