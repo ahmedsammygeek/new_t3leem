@@ -7,16 +7,17 @@
 			<div class="col">
 				<!-- Page pre-title -->
 				<div class="page-pretitle">
-					عرض تفاصيل
+					تعديل
 				</div>
 				<h2 class="page-title">
-					الجامعات
+					الكليات
 				</h2>
 			</div>
 			<!-- Page title actions -->
 			<div class="col-auto ms-auto d-print-none">
 				<div class="btn-list">
-					<a href="{{ route('board.universities.index') }}" class="btn btn-primary d-none d-sm-inline-block" >
+
+					<a href="{{ route('board.faculties.index') }}" class="btn btn-primary d-none d-sm-inline-block" >
 						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users-group" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 							<path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
@@ -26,7 +27,7 @@
 							<path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
 							<path d="M3 13v-1a2 2 0 0 1 2 -2h2"></path>
 						</svg>
-						عرض كافه الجامعات
+						عرض كافه الكليات
 					</a>
 				</div>
 			</div>
@@ -38,48 +39,38 @@
 	<div class="container-xl">
 		<div class="row row-deck row-cards">
 			<div class="col-md-12">
-				<div class="card">
-					<div class="card-body">
-						<table class="table table-responsive table-bordered">
-							<tbody>
-								<tr>
-									<th> تاريخ الاضافه </th>
-									<td> {{ $university->created_at }} <span class="text-muted"> {{ $university->created_at->diffForHumans() }} </span> </td>
-								</tr>
-
-								<tr>
-									<th> تم الاضافه بواسطه </th>
-									<td> {{ $university->user?->name }}  </td>
-								</tr>
-								<tr>
-									<th> الاسم </th>
-									<td> {{ $university->name }}  </td>
-								</tr>
-								
-
-
-
-								<tr>
-									<th> فعال ؟ </th>
-									<td> 
-										@switch($university->is_active )
-										@case(1)
-										<span class="badge bg-primary"> نعم </span>
-										@break
-										@case(0)
-										<span class="badge bg-danger"> لا</span>
-										@break
-										@endswitch
-									</td>
-								</tr>
-
-								
-							</tbody>
-						</table>
+				<form class="card" method='POST' action='{{ route('board.faculties.update' , $faculty ) }}' enctype="multipart/form-data" >
+					@csrf
+					@method('PATCH')
+					<div class="card-header bg-primary">
+						<h3 class="card-title text-white"> تعديل بيانات الكليه  </h3>
 					</div>
-				</div>
+					<div class="card-body">
+
+						<div class="row row-cards">
+							<div class="col-md-12">
+								<div class="mb-3">
+									<label class="form-label required"> الاسم </label>
+									<div>
+										<input type="text" class="form-control @error('name') is-invalid @enderror " name='name' value="{{ $faculty->name }}" >
+										@error('name')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+						</div>			
+					</div>
+					<div class="card-footer text-end">
+						<div class='d-flex' >
+							<a href="{{ route('board.faculties.index') }}" class="btn btn-link"> تراجع </a>
+							<button type="submit" class="btn btn-primary ms-auto"> تعديل </button>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
 </div>
 @endsection
+

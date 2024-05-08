@@ -12,7 +12,7 @@ class ListAllAdmins extends Component
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $rows = 90 ;
+    public $rows = 30 ;
     public $search;
     public $showDeletionConfirmationModal = false;
     protected $listeners   = ['deleteItem'];

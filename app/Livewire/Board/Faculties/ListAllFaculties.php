@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Livewire\Board\Universities;
+namespace App\Livewire\Board\Faculties;
 
 
 use Livewire\Component;
-use App\Models\University;
+use App\Models\Faculty;
 use Livewire\WithPagination;
-class ListAllUniversities extends Component
+class ListAllFaculties extends Component
 {
 
     use WithPagination;
@@ -17,7 +17,7 @@ class ListAllUniversities extends Component
 
     public function deleteItem($item_id)
     {
-        $item = University::find($item_id);
+        $item = Faculty::find($item_id);
         if ($item) {
             $item->delete();
             $this->dispatch('itemDeleted');
@@ -37,11 +37,11 @@ class ListAllUniversities extends Component
 
     public function render()
     {
-        $universities = University::when($this->search , function($query){
+        $faculties = Faculty::when($this->search , function($query){
             $query->where('name' , 'LIKE' , '%'.$this->search.'%' );
         })
         ->latest()
         ->paginate($this->rows);
-        return view('livewire.board.universities.list-all-universities' , compact('universities'));
+        return view('livewire.board.faculties.list-all-faculties' , compact('faculties'));
     }
 }

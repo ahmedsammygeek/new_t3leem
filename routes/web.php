@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Board\HomeController;
 use App\Http\Controllers\Board\AdminController;
 use App\Http\Controllers\Board\UniversityController;
+use App\Http\Controllers\Board\FacultyController;
 
 Route::get('/test', [HomeController::class , 'test']);
 
@@ -13,6 +14,9 @@ Route::group(['prefix' => 'Board' , 'as' => 'board.'  , 'middleware' => 'auth' ]
 
     Route::resource('admins', AdminController::class);
     Route::resource('universities', UniversityController::class);
+    Route::resource('faculties', FacultyController::class);
+
+    
 
     // Route::get('/login', function(){
     //     return view('board.login');
