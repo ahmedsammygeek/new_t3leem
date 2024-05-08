@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="ar" dir="rtl" >
+
+<html lang="en" dir="rtl" >
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
@@ -24,23 +25,21 @@
     }
   </style>
 </head>
-<body >
+<body class=' layout-fluid' >
   <script src="{{ asset('board_assets/dist/js/demo-theme.min.js') }}"></script>
   <div class="page">
+    <!-- Sidebar -->
+    @include('board.layout.sidebar')
     <!-- Navbar -->
     @include('board.layout.header')
     <div class="page-wrapper">
       <!-- Page header -->
-
-      <!-- Page body -->
-      
       @yield('content')
       @include('board.layout.footer')
     </div>
   </div>
 
-  <!-- Libs JS -->
-  <!-- Tabler Core -->
+
   <script src="{{ asset('board_assets/dist/js/tabler.min.js') }}" defer></script>
   <script src="{{ asset('board_assets/dist/js/demo.min.js') }}" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -49,6 +48,5 @@
   @stack('scripts')
 
   @livewireScripts
-  
 </body>
 </html>
