@@ -1,10 +1,4 @@
-<div class="row">
-    <div class="col-md-12">
-        @can('admins.add')
-        <a href="{{ route('board.admins.create') }}" class="btn btn-primary mb-2" style="float: left;">  <i class="icon-plus3  me-2"></i>  إضافه مشرف جديد </a>
-        @endcan
-    </div>
-
+<div class="row row-deck row-cards">
 
     <div class="col-md-12">
         <div class="card">
@@ -42,7 +36,6 @@
                             <th > اسم المشرف </th>
                             <th>رقم الجوال</th>
                             <th>السماح بدخول النظام</th>
-                            <th>السماح بدخول النظام</th>
                             <th class="text-center" style="width: 20px;">خصائص</th>
                         </tr>
                         @endif
@@ -61,7 +54,6 @@
                                 <a href="{{ route('board.admins.show' , $admin ) }}" class="d-block fw-semibold">{{ $admin->name }}</a>
                                 <span class="fs-sm text-muted">{{ $admin->created_at->toFormattedDateString() }}</span>
                             </td>
-                            <td>{{ $admin->email }}</td>
                             <td>{{ $admin->mobile }}</td>
                             <td>
                                 @switch($admin->is_blocked )
