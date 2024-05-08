@@ -5,6 +5,7 @@ use App\Http\Controllers\Board\HomeController;
 use App\Http\Controllers\Board\AdminController;
 use App\Http\Controllers\Board\UniversityController;
 use App\Http\Controllers\Board\FacultyController;
+use App\Http\Controllers\Board\DepartmentController;
 
 Route::get('/test', [HomeController::class , 'test']);
 
@@ -15,8 +16,9 @@ Route::group(['prefix' => 'Board' , 'as' => 'board.'  , 'middleware' => 'auth' ]
     Route::resource('admins', AdminController::class);
     Route::resource('universities', UniversityController::class);
     Route::resource('faculties', FacultyController::class);
+    Route::resource('departments', DepartmentController::class);
 
-    
+
 
     // Route::get('/login', function(){
     //     return view('board.login');
