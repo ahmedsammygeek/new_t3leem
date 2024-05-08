@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Board\HomeController;
 use App\Http\Controllers\Board\AdminController;
+use App\Http\Controllers\Board\UniversityController;
 
 Route::get('/test', [HomeController::class , 'test']);
 
@@ -11,6 +12,7 @@ Route::group(['prefix' => 'Board' , 'as' => 'board.'  , 'middleware' => 'auth' ]
     Route::get('/', [HomeController::class , 'index'] )->name('home');
 
     Route::resource('admins', AdminController::class);
+    Route::resource('universities', UniversityController::class);
 
     // Route::get('/login', function(){
     //     return view('board.login');

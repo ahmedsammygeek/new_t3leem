@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Hash;
 use Auth;
+use App\Models\User;
 class HomeController extends Controller
 {
     public function index()
@@ -18,8 +19,8 @@ class HomeController extends Controller
 
     public function test() {
 
-        Auth::logout();
-
+        dd('test here your code');
+        // Auth::logout();
         // dd(Hash::make(90909090));
         // return redirect(route('board.home'))->with('success' , 'dsdsdsdsd' );
     }
