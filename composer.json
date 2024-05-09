@@ -13,7 +13,8 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
         "spatie/image-optimizer": "^1.7",
-        "spatie/laravel-permission": "^6.7"
+        "spatie/laravel-permission": "^6.7",
+        "spatie/laravel-view-models": "^1.6"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",

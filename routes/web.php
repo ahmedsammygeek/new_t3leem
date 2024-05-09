@@ -6,6 +6,7 @@ use App\Http\Controllers\Board\AdminController;
 use App\Http\Controllers\Board\UniversityController;
 use App\Http\Controllers\Board\FacultyController;
 use App\Http\Controllers\Board\DepartmentController;
+use App\Http\Controllers\Board\TeacherController;
 
 Route::get('/test', [HomeController::class , 'test']);
 
@@ -17,12 +18,12 @@ Route::group(['prefix' => 'Board' , 'as' => 'board.'  , 'middleware' => 'auth' ]
     Route::resource('universities', UniversityController::class);
     Route::resource('faculties', FacultyController::class);
     Route::resource('departments', DepartmentController::class);
-
-    Route::resource('teachers', AdminController::class);
+    Route::resource('teachers', TeacherController::class);
     Route::resource('assistants', AdminController::class);
     Route::resource('students', AdminController::class);
 
 
+    
 
 
     // Route::get('/login', function(){

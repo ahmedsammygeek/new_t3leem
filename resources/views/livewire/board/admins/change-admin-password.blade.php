@@ -18,7 +18,7 @@
 
             <hr>
             <div class="mb-3">
-              <label class="form-label"> كلمه المرور الجديده للمشرف </label>
+              <label class="form-label"> كلمه المرور الجديده  </label>
               <input type="password" class="form-control @error('password') is-invalid @enderror" wire:model.live.debounce.150ms="password"  placeholder="كلمه المرور الجديده">
               @error('password')
               <small class="form-hint text-danger"> {{ $message }} </small>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="mb-3">
-              <label class="form-label"> تاكيد المرور الجديده للمشرف </label>
+              <label class="form-label"> تاكيد المرور الجديده  </label>
               <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" wire:model.live.debounce.150ms="password_confirmation"  placeholder="تاكيد المرور الجديده">
               @error('password_confirmation')
               <small class="form-hint text-danger"> {{ $message }} </small>

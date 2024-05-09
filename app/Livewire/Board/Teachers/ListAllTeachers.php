@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Livewire\Board\Admins;
+namespace App\Livewire\Board\Teachers;
 
 
 use Livewire\Component;
 use App\Models\User;
 use App\Enums\UserType;
 use Livewire\WithPagination;
-class ListAllAdmins extends Component
+class ListAllTeachers extends Component
 {
 
     use WithPagination;
@@ -39,8 +39,8 @@ class ListAllAdmins extends Component
 
     public function render()
     {
-        $admins = User::where(function($query){
-            return $query->where('type' , UserType::ADMIN );
+        $teachers = User::where(function($query){
+            return $query->where('type' , UserType::TEACHER);
         })
         ->when($this->search , function($query){
             $query->where(function($query){
@@ -49,6 +49,6 @@ class ListAllAdmins extends Component
         })
         ->latest()
         ->paginate($this->rows);
-        return view('livewire.board.admins.list-all-admins' , compact('admins'));
+        return view('livewire.board.teachers.list-all-teachers' , compact('teachers'));
     }
 }
